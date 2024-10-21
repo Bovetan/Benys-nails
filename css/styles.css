@@ -251,3 +251,48 @@ body, html {
     justify-content: center;
     align-items: center;
 }
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .main-container {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .logo-container {
+        top: 10px;
+        left: 10px;
+    }
+
+    .carousel {
+        width: 90%;
+        height: 300px;
+    }
+
+    .dialogs {
+        right: 10px;
+        top: 60px;
+    }
+
+    .dialog {
+        width: 90%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .dialog h2 {
+        font-size: 1em;
+    }
+
+    /* Ajustes adicionales para tamaños de pantalla muy pequeños */
+    @media (max-width: 480px) {
+        .logo-img {
+            width: 120px;
+        }
+
+        .carousel {
+            height: 250px;
+        }
+    }
+}
