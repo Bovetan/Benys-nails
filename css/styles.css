@@ -254,46 +254,76 @@ body, html {
     align-items: center;
 }
 
-/* Media queries para dispositivos móviles */
-@media (max-width: 768px) {
+/* Ajustes generales para que el logo no se superponga en móviles */
+.logo-container {
+    top: 10px;
+    left: 10px;
+    width: auto;
+    height: auto;
+    max-width: 80px; /* Reducir el tamaño del logo en móviles */
+}
+
+/* Ajuste específico para la imagen del logo */
+.logo-img {
+    width: 100%; /* Mantener el logo dentro de su contenedor */
+    height: auto;
+}
+
+/* Ajustes para el carrusel */
+.carousel {
+    width: 100%;
+    max-width: 400px; /* Limitar el ancho en móviles */
+    height: 200px; /* Ajustar la altura para pantallas pequeñas */
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+/* Ajustes para los diálogos en dispositivos móviles */
+.dialogs {
+    top: 220px; /* Ajustar para que los cuadros estén debajo del carrusel en móviles */
+    right: 5px;
+    width: 100%;
+}
+
+.dialog {
+    width: 90%; /* Ocupa casi todo el ancho en móviles */
+    margin: 10px auto; /* Centrar los cuadros y dar espacio entre ellos */
+    padding: 15px;
+    height: auto; /* Ajustar automáticamente la altura */
+}
+
+/* Ajuste del texto en los cuadros de diálogo */
+.dialog h2 {
+    font-size: 1.5em; /* Tamaño del texto para pantallas móviles */
+}
+
+/* Ajustes específicos para pantallas más pequeñas */
+@media (max-width: 480px) {
     .main-container {
         width: 100%;
-        height: auto;
-        border-radius: 0;
-        padding: 10px;
-    }
-
-    .logo-container {
-        top: 10px;
-        left: 10px;
-        width: 100px; /* Reducir el tamaño del logo */
-    }
-
-    .logo-img {
-        width: 100px; /* Reducir el tamaño del logo */
+        padding: 15px;
+        border-radius: 0; /* Sin bordes redondeados en móviles */
     }
 
     .carousel {
-        height: 250px;
+        height: 180px;
+    }
+
+    .dialogs {
+        top: 180px; /* Ajustar para que quede debajo del carrusel */
     }
 
     .dialog {
-        width: 100%; /* Ocupa todo el ancho en móviles */
         padding: 10px;
+        font-size: 1em; /* Tamaño de texto más pequeño para caber bien */
     }
 
-    .dialog h2 {
-        font-size: 1.2em;
+    .logo-container {
+        max-width: 60px;
     }
-}
 
-@media (max-width: 480px) {
     .logo-img {
-        width: 80px; /* Aún más pequeño para pantallas muy pequeñas */
-    }
-
-    .carousel {
-        height: 200px;
+        width: 100%;
     }
 }
 
