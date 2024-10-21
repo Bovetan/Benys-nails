@@ -256,43 +256,65 @@ body, html {
 @media (max-width: 768px) {
     .main-container {
         width: 100vw;
-        height: 100vh;
+        height: auto; /* Ajusta la altura automáticamente */
         border-radius: 0;
+        padding: 10px; /* Añadir padding para que no se pegue a los bordes */
+        overflow-y: auto; /* Permitir desplazamiento vertical */
     }
 
     .logo-container {
         top: 10px;
         left: 10px;
+        width: 80px; /* Ajustar el tamaño del logo para pantallas pequeñas */
+    }
+
+    .logo-img {
+        width: 80px; /* Reducir el tamaño en móviles */
     }
 
     .carousel {
-        width: 90%;
-        height: 300px;
+        width: 100%; /* Ancho completo en pantallas pequeñas */
+        height: auto; /* Ajustar altura automáticamente */
+        margin: 20px 0; /* Espaciado para separar del contenido */
+    }
+
+    .carousel-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho del contenedor */
+        height: auto; /* Mantén la proporción de las imágenes */
     }
 
     .dialogs {
-        right: 10px;
-        top: 60px;
+        width: 100%; /* Ocupa todo el ancho disponible */
+        right: 0; /* Centrado horizontal */
+        top: 10px; /* Ajustar para alinearse correctamente */
+        gap: 10px; /* Reducir el espacio entre cuadros */
+        padding: 0 10px; /* Añadir padding para separar los cuadros del borde */
     }
 
     .dialog {
-        width: 90%;
-        height: auto;
-        padding: 10px;
+        width: 100%; /* Ancho completo del contenedor */
+        height: auto; /* Ajustar altura automáticamente */
+        padding: 15px; /* Ajustar el padding */
     }
 
     .dialog h2 {
-        font-size: 1em;
+        font-size: 1.5em; /* Ajustar el tamaño de fuente */
+    }
+
+    .dialog button {
+        font-size: 1em; /* Ajustar el tamaño de fuente */
+        width: 100%; /* Ancho completo del botón */
     }
 
     /* Ajustes adicionales para tamaños de pantalla muy pequeños */
     @media (max-width: 480px) {
         .logo-img {
-            width: 120px;
+            width: 60px; /* Aún más pequeño para pantallas muy pequeñas */
         }
 
         .carousel {
-            height: 250px;
+            height: auto;
         }
     }
 }
+
