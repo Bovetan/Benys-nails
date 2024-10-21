@@ -1,0 +1,253 @@
+/* Importar las fuentes desde la carpeta fonts */
+@font-face {
+    font-family: 'MiFuente';
+    src: url('../fonts/QwitcherGrypen-Regular.ttf') format('truetype'),
+         url('../fonts/QwitcherGrypen-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilo general para el body y html */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'MiFuente', Arial, sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Fondo principal */
+.main-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../imagenes/fondo-header.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/* Contenedor principal */
+.main-container {
+    display: flex; /* Utiliza Flexbox para organizar el contenido en una columna */
+    flex-direction: column; /* Ordena los elementos en una columna vertical */
+    align-items: center; /* Centra los elementos horizontalmente dentro del contenedor */
+    justify-content: center; /* Centra los elementos verticalmente dentro del contenedor */
+    width: 95vw; /* El contenedor ocupa el 95% del ancho de la ventana de visualización */
+    height: 95vh; /* El contenedor ocupa el 95% de la altura de la ventana de visualización */
+    position: relative; /* Establece una posición relativa para poder posicionar elementos internos con respecto a él */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente para el contenedor */
+    border-radius: 80px; /* Bordes redondeados del contenedor con un radio de 80px */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 10); /* Sombra suave alrededor del contenedor para darle profundidad */
+}
+
+/* Fondo de colores detrás de los cuadros de diálogo */
+.dialog-background {
+    position: absolute; /* Posicionamiento absoluto para poder colocarlo en cualquier parte del contenedor */
+    right: 10px; /* Se alinea hacia el lado derecho del contenedor */
+    top: 50px; /* Espacio desde la parte superior del contenedor principal, ajusta este valor para subir o bajar */
+    width: 240px; /* Ancho del fondo que se alinea con los cuadros de diálogo */
+    height: 600px; /* Altura del rectángulo que cubre los cuadros de diálogo; ajusta este valor para cambiar la longitud hacia abajo */
+    background: linear-gradient(
+        to bottom, /* El gradiente se orienta de arriba hacia abajo */
+        #FF69B4, /* Color inicial (rosa) */
+        #8A2BE2, /* Color intermedio (morado) */
+        #40E0D0, /* Color intermedio (turquesa) */
+        #FF69B4 /* Color final (rosa) para cerrar el ciclo */
+    );
+    background-size: 300% 300%; /* Tamaño del fondo para permitir que el gradiente se desplace */
+    animation: moveGradient 10s infinite linear; /* Animación suave que hace que el fondo se mueva constantemente */
+    z-index: 0; /* Se coloca detrás de los cuadros de diálogo */
+    border-radius: 10px; /* Bordes redondeados para suavizar las esquinas */
+}
+
+/* Animación del fondo de colores */
+@keyframes moveGradient {
+    0% { background-position: 0% 0%; } /* Inicia en la parte superior del contenedor */
+    100% { background-position: 0% 100%; } /* Se mueve hacia la parte inferior del contenedor */
+}
+
+/* Contenedor del logo */
+.logo-container {
+    position: fixed;
+    top: 30px;
+    left: 60px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo para el logo */
+.logo-img {
+    width: 200px;
+    height: auto;
+    position: relative; /* Posición relativa para que el pseudo-elemento se alinee con el logo */
+    z-index: 1000; /* Asegura que la imagen esté por encima del círculo */
+}
+
+/* Círculo negro detrás del logo */
+.logo-container::before {
+    content: "";
+    position: absolute;
+    width: 200px; /* Ajustar para que el círculo sea ligeramente más grande que el logo */
+    height: 200px; /* Ajustar para que sea un círculo perfecto */
+    background-color: black; /* Color negro */
+    border-radius: 50%; /* Hacerlo circular */
+    z-index: 998; /* Debajo del logo */
+}
+
+/* Ajustes para cuadros de diálogo y menús desplegables */
+.dialog, .info-cuadro {
+    position: relative;
+    z-index: 10; /* Valor más bajo que el logo para asegurar que quede detrás */
+    /* Otros estilos necesarios para los cuadros */
+}
+
+/* Contenedor del carrusel */
+.carousel {
+    width: 55%;
+    height: 750px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
+.carousel-image {
+    width: 65%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+
+/* Cuadros de diálogo */
+.dialog {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo con opacidad */
+    padding: 20px; /* Espacio interno ajustado */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para el efecto de elevación */
+    width: 250px; /* Ancho fijo del cuadro */
+    height: 150px; /* Alto fijo del cuadro */
+    cursor: pointer; /* Cambia el cursor a mano */
+    transition: transform 0.3s; /* Transición suave al hacer hover */
+    font-family: 'MiFuente', Arial, sans-serif; /* Fuente personalizada */
+    display: flex; /* Flex para alinear el contenido */
+    flex-direction: column; /* Dirección en columna para los elementos internos */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+}
+
+/* Efecto al pasar el cursor sobre los cuadros */
+.dialog:hover {
+    transform: translateX(-50px); /* Movimiento hacia la izquierda al hacer hover */
+}
+
+/* Estilo para el título de los cuadros de diálogo */
+.dialog h2 {
+    font-size: 3.5em; /* Tamaño del título ajustado */
+    margin-bottom: 1px; /* Espacio inferior para separar el título del contenido */
+    font-weight: bold; /* Resalta el título */
+    font-family: 'MiFuente', Arial, sans-serif; /* Fuente personalizada */
+    text-align: center; /* Centramos el texto */
+}
+
+/* Estilo para los ítems de lista dentro de los cuadros de diálogo */
+.dialog ul {
+    list-style: none; /* Quitamos los puntos de lista */
+    padding: 0; /* Sin padding */
+    margin: 5px; /* Sin margen */
+}
+
+.dialog ul li {
+    font-size: 2em; /* Tamaño de la fuente ajustado */
+    margin: 0px 0; /* Margen para separar los ítems */
+    font-family: 'MiFuente', Arial, sans-serif; /* Fuente personalizada */
+    text-align: center; /* Centramos los ítems */
+}
+
+/* Estilo para los botones dentro de los cuadros de diálogo */
+.dialog button {
+    background-color: #ece1f7; /* Color de fondo */
+    color: rgb(0, 0, 0); /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 3px 20px; /* Espacio interno ajustado */
+    font-size: 1em; /* Tamaño de la fuente ajustado */
+    font-family: 'MiFuente', Arial, sans-serif; /* Fuente personalizada */
+    font-weight: bold; /* Resalta el texto */
+    cursor: pointer; /* Cursor interactivo */
+    border-radius: 6px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    margin-top: 5px; /* Espacio superior para separar del contenido */
+}
+
+/* Efecto al pasar el cursor sobre los botones */
+.dialog button:hover {
+    background-color: #ffffff00; /* Cambio de color al hacer hover */
+    transform: scale(1.05); /* Efecto de escala ligero al pasar el cursor */
+}
+
+/* Contenedor de los cuadros de diálogo */
+.dialogs {
+    display: flex;
+    flex-direction: column; /* Cuadros en columna */
+    gap: 15px; /* Espacio entre cuadros */
+    position: absolute;
+    right: 20px;
+    top: 80px; /* Ajuste para alineación */
+    z-index: 3; /* Asegura la visibilidad */
+}
+
+/* Botón de cierre del cuadro de información */
+#close-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(to bottom, #FF69B4, #8A2BE2, #40E0D0);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+}
+
+/* Estilo del cuadro de información */
+.info-cuadro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+/* Estilo específico para los cuadros de información */
+.info-cuadro.active {
+    z-index: 50; /* Un z-index menor para que no sobrepase el logo */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

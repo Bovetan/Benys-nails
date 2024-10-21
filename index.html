@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benys Nails</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <!-- Imagen de fondo -->
+    <div class="main-background"></div>
+
+    <div class="main-container">
+        <!-- Fondo de colores fijo -->
+        <div class="dialog-background"></div>
+
+        <!-- Logo de la empresa -->
+        <div class="logo-container">
+            <img src="imagenes/_fondo_negro_-removebg-preview.png" alt="Logo de Benys Nails" class="logo-img">
+        </div>
+        
+        <!-- Carrusel de imágenes -->
+        <div class="carousel">
+            <div class="carousel-image active" style="background-image: url('./imagenes/IMG-20241011-WA0048.jpg');"></div>
+            <div class="carousel-image" style="background-image: url('./imagenes/IMG-20241011-WA0049.jpg');"></div>
+            <div class="carousel-image" style="background-image: url('./imagenes/IMG-20241011-WA0047.jpg');"></div>
+            <div class="carousel-image" style="background-image: url('./imagenes/IMG-20241011-WA0050.jpg');"></div>
+            <div class="carousel-image" style="background-image: url('./imagenes/IMG-20241011-WA0051.jpg');"></div>
+            <div class="carousel-image" style="background-image: url('./imagenes/Imagen\ de\ WhatsApp\ 2024-10-20\ a\ las\ 18.22.26_26117ea2.jpg');"></div>
+        </div>
+
+        <!-- Cuadros de diálogo -->
+        <div class="dialogs">
+            <div class="dialog" id="servicios">
+                <h2>Servicios</h2>
+                <ul>
+                    <li><button onclick="mostrarInfo('manicura')">Manicura</button></li>
+                    <li><button onclick="mostrarInfo('clases')">Clases</button></li>
+                </ul>
+            </div>
+            <div class="dialog" id="promociones">
+                <h2>Promociones</h2>
+                <ul>
+                    <li><button onclick="mostrarInfo('descuentos')">Descuentos</button></li>
+                    <li><button onclick="mostrarInfo('paquetes')">Paquetes Especiales</button></li>
+                </ul>
+            </div>
+            <div class="dialog" id="contacto">
+                <h2>Contacto</h2>
+                <ul>
+                    <li><button onclick="mostrarInfo('informacion')">Información</button></li>
+                    <li><button onclick="mostrarInfo('reservas')">Reservas</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cuadro de información -->
+    <div id="info-cuadro" class="info-cuadro">
+        <div id="info-content" class="info-content"></div>
+        <button id="close-info">&times;</button>
+    </div>
+
+    <script src="./js/scripts.js"></script>
+</body>
+</html>
+
