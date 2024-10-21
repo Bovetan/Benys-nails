@@ -256,76 +256,104 @@ body, html {
 
 /* Estilos generales para el logo en dispositivos móviles */
 .logo-container {
-    top: 10px; /* Ajusta la distancia desde la parte superior */
-    left: 10px; /* Ajusta la distancia desde la izquierda */
-    width: auto;
-    height: auto;
-    max-width: 80px; /* Tamaño máximo del logo en móviles */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    max-width: 60px; /* Tamaño máximo para que el logo no ocupe demasiado espacio */
+    z-index: 999;
 }
 
 /* Imagen del logo */
 .logo-img {
-    width: 100%; /* Ajusta la imagen al tamaño del contenedor */
-    height: auto; /* Mantiene la proporción del logo */
+    width: 100%; /* Mantener la proporción dentro del contenedor */
+    height: auto;
 }
 
-/* Ajustes para el carrusel en móviles */
+/* Contenedor principal para móviles */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Para que los elementos se apilen desde la parte superior */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    height: auto; /* Altura dinámica */
+    padding: 20px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0; /* Sin bordes redondeados en móviles */
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Carrusel ajustado para móviles */
 .carousel {
-    width: 100%; /* Ocupa el ancho completo de la pantalla */
-    max-width: 400px; /* Limitar el ancho máximo para pantallas más grandes */
-    height: 200px; /* Altura ajustada para dispositivos móviles */
-    margin: 20px 0; /* Espacio superior e inferior para separar el carrusel de otros elementos */
+    width: 100%;
+    max-width: 400px; /* Limitar el ancho para dispositivos móviles */
+    height: 180px; /* Ajustar la altura para pantallas pequeñas */
+    margin: 20px 0;
     overflow: hidden;
 }
 
-/* Ajustes para los cuadros de diálogo en dispositivos móviles */
+/* Ajustes para los cuadros de diálogo en móviles */
 .dialogs {
-    top: 260px; /* Ajusta la posición vertical de los cuadros para que queden debajo del carrusel */
-    right: 5px; /* Espacio desde el borde derecho */
-    width: 100%; /* Ocupa todo el ancho disponible en móviles */
+    top: 260px; /* Posiciona los cuadros debajo del carrusel */
+    right: 5px;
+    width: 100%;
 }
 
-/* Estilos de los cuadros de diálogo en móviles */
 .dialog {
-    width: 90%; /* Ocupa casi todo el ancho para dejar márgenes */
-    margin: 10px auto; /* Centramos los cuadros y añadimos un margen para separarlos */
-    padding: 15px; /* Espacio interno */
-    height: auto; /* Altura ajustable según el contenido */
+    width: 90%; /* Ocupa la mayor parte del ancho para móviles */
+    margin: 10px auto;
+    padding: 15px;
+    height: auto; /* Altura dinámica */
 }
 
-/* Estilo del texto en los cuadros de diálogo */
+/* Ajuste del texto en los cuadros de diálogo */
 .dialog h2 {
-    font-size: 1.5em; /* Ajuste del tamaño del texto para móviles */
+    font-size: 1.5em; /* Tamaño del texto adecuado para móviles */
 }
 
-/* Estilos específicos para pantallas muy pequeñas (por debajo de 480px) */
+/* Estilos para las vistas de contenido desplegable (manicura, clases, etc.) */
+.info-cuadro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa toda la altura */
+    overflow-y: auto; /* Permitir desplazamiento si el contenido es más grande que la pantalla */
+    background-color: rgba(255, 255, 255, 0.9);
+    display: none;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    justify-content: center;
+    align-items: flex-start; /* Alinea el contenido desde la parte superior */
+    padding: 20px; /* Espacio interno */
+}
+
+.info-cuadro.active {
+    display: flex; /* Muestra el cuadro de información */
+}
+
+/* Ajustes para pantallas pequeñas de menos de 480px */
 @media (max-width: 480px) {
-    .main-container {
-        width: 100%; /* Ocupa todo el ancho de la pantalla */
-        padding: 15px; /* Espacio interno */
-        border-radius: 0; /* Sin bordes redondeados en móviles */
+    .logo-container {
+        max-width: 40px; /* Logo aún más pequeño en pantallas pequeñas */
     }
 
     .carousel {
-        height: 180px; /* Reducir la altura para pantallas muy pequeñas */
+        height: 150px; /* Reducir la altura del carrusel */
     }
 
     .dialogs {
-        top: 200px; /* Ajuste para que quede debajo del carrusel */
+        top: 180px; /* Posiciona los cuadros justo debajo del carrusel */
     }
 
     .dialog {
-        padding: 10px; /* Espacio reducido */
-        font-size: 1em; /* Tamaño del texto ajustado para pantallas pequeñas */
+        padding: 10px;
+        font-size: 0.9em; /* Texto más pequeño para que todo quepa */
     }
 
-    .logo-container {
-        max-width: 60px; /* Tamaño máximo del logo en pantallas pequeñas */
-    }
-
-    .logo-img {
-        width: 100%; /* Ajuste de tamaño al contenedor */
+    .info-cuadro {
+        padding: 10px; /* Reducir el padding para pantallas pequeñas */
     }
 }
-
 
