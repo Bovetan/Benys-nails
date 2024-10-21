@@ -39,11 +39,13 @@ body, html {
     align-items: center; /* Centra los elementos horizontalmente dentro del contenedor */
     justify-content: center; /* Centra los elementos verticalmente dentro del contenedor */
     width: 95vw; /* El contenedor ocupa el 95% del ancho de la ventana de visualización */
-    height: 95vh; /* El contenedor ocupa el 95% de la altura de la ventana de visualización */
+    height: auto; /* El contenedor ocupa el 95% de la altura de la ventana de visualización */
+    padding: 20px;
     position: relative; /* Establece una posición relativa para poder posicionar elementos internos con respecto a él */
     background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente para el contenedor */
     border-radius: 80px; /* Bordes redondeados del contenedor con un radio de 80px */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 10); /* Sombra suave alrededor del contenedor para darle profundidad */
+    overflow-y: auto; /* Permitir desplazamiento vertical */
 }
 
 /* Fondo de colores detrás de los cuadros de diálogo */
@@ -255,66 +257,43 @@ body, html {
 /* Media queries para dispositivos móviles */
 @media (max-width: 768px) {
     .main-container {
-        width: 100vw;
-        height: auto; /* Ajusta la altura automáticamente */
+        width: 100%;
+        height: auto;
         border-radius: 0;
-        padding: 10px; /* Añadir padding para que no se pegue a los bordes */
-        overflow-y: auto; /* Permitir desplazamiento vertical */
+        padding: 10px;
     }
 
     .logo-container {
         top: 10px;
         left: 10px;
-        width: 80px; /* Ajustar el tamaño del logo para pantallas pequeñas */
+        width: 100px; /* Reducir el tamaño del logo */
     }
 
     .logo-img {
-        width: 80px; /* Reducir el tamaño en móviles */
+        width: 100px; /* Reducir el tamaño del logo */
     }
 
     .carousel {
-        width: 100%; /* Ancho completo en pantallas pequeñas */
-        height: auto; /* Ajustar altura automáticamente */
-        margin: 20px 0; /* Espaciado para separar del contenido */
-    }
-
-    .carousel-image {
-        width: 100%; /* Asegura que las imágenes ocupen todo el ancho del contenedor */
-        height: auto; /* Mantén la proporción de las imágenes */
-    }
-
-    .dialogs {
-        width: 100%; /* Ocupa todo el ancho disponible */
-        right: 0; /* Centrado horizontal */
-        top: 10px; /* Ajustar para alinearse correctamente */
-        gap: 10px; /* Reducir el espacio entre cuadros */
-        padding: 0 10px; /* Añadir padding para separar los cuadros del borde */
+        height: 250px;
     }
 
     .dialog {
-        width: 100%; /* Ancho completo del contenedor */
-        height: auto; /* Ajustar altura automáticamente */
-        padding: 15px; /* Ajustar el padding */
+        width: 100%; /* Ocupa todo el ancho en móviles */
+        padding: 10px;
     }
 
     .dialog h2 {
-        font-size: 1.5em; /* Ajustar el tamaño de fuente */
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: 80px; /* Aún más pequeño para pantallas muy pequeñas */
     }
 
-    .dialog button {
-        font-size: 1em; /* Ajustar el tamaño de fuente */
-        width: 100%; /* Ancho completo del botón */
-    }
-
-    /* Ajustes adicionales para tamaños de pantalla muy pequeños */
-    @media (max-width: 480px) {
-        .logo-img {
-            width: 60px; /* Aún más pequeño para pantallas muy pequeñas */
-        }
-
-        .carousel {
-            height: auto;
-        }
+    .carousel {
+        height: 200px;
     }
 }
 
